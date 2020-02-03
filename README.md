@@ -26,7 +26,7 @@ Il progetto richiede lo sviluppo di un sito di e-commerce in HTML.
     - avviato, quindi, il server tomcat è possibile far girare il sito su un qualsiasi browser
     - per chiudere il server tomcat scrivere "shutdown.bin"
   - è possibile vedere il punto 3) e 4) dal codice che è stato suddiviso nei package 
-  - è stato utilizzato un DB relazione che è possibile importare attraverso MySQL con il file "dumps"
+  - punto 7): è stato utilizzato un DB relazione che è possibile importare attraverso MySQL con il file "dumps"
   - è stato utilizzato per modificare il DOM delle pagine, JavaScript e JQuery e AJAX per lo slide nella homepage
   - per il punto 12):
     - amministratore: può modificare,inserire e modificare il prodotto
