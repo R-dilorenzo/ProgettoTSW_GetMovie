@@ -3,6 +3,10 @@ progetto corso TSW
 
 Il progetto richiede lo sviluppo di un sito di e-commerce in HTML.
 
+Sono stati utilizzati per:
+- Frontend: HTML5, JavaScript e CSS con framework Bootstrap
+- Backend: Java con il database MySQL
+
 * #### Richieste progetto:
 
 >1. Il sito deve essere responsive;  
@@ -19,16 +23,16 @@ Il progetto richiede lo sviluppo di un sito di e-commerce in HTML.
 >12. Vanno previste funzionalità diverse per ciascuna delle figure dell'amministratore, dell’utente registrato e dell’utente non registrato.  
 >13. Qualità dell’interfaccia e dell’interazione con l’applicazione. 
 
-  - per il punto 1) sono state utilizzate alcune funzionalità di Bootstrap e alcuni breakpoint in CSS per adattare al meglio il sito alle varie dimensioni
-  - per il punto 2):
+  -  1): sono state utilizzate alcune funzionalità di Bootstrap e alcuni breakpoint in CSS per adattare al meglio il sito alle varie dimensioni
+  - 2):
     - esportare il file in .war nella cartella webapps di tomcat
     - da prompt andare nella cartella .bin di tomcat e avviare tomcat scrivendo il comando "startup.bin"
     - avviato, quindi, il server tomcat è possibile far girare il sito su un qualsiasi browser
     - per chiudere il server tomcat scrivere "shutdown.bin"
   - è possibile vedere il punto 3) e 4) dal codice che è stato suddiviso nei package 
-  - punto 7): è stato utilizzato un DB relazione che è possibile importare attraverso MySQL con il file "dumps"
-  - è stato utilizzato per modificare il DOM delle pagine, JavaScript e JQuery e AJAX per lo slide nella homepage
-  - per il punto 12):
+  -  7): è stato utilizzato un DB relazione che è possibile importare attraverso MySQL con il file "dump"
+  - è stato utilizzato per modificare il DOM delle pagine, JavaScript, JQuery e AJAX per lo slide nella homepage
+  - 12): Sono state suddivise le funzionalità a seconda del ruolo, in particolare:
     - amministratore: può modificare,inserire e modificare il prodotto
     - utente registrato: può acquistare i prodotti
     - utente non registrato: può solo visionare i prodotti presenti sul sito. Per poterli acquistare, infatti, bisogna effettuare il login dopo essersi registrati
