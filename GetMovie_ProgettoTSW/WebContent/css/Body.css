@@ -1,0 +1,101 @@
+@charset "ISO-8859-1";
+
+.body {
+	 min-width: 500px;
+}
+.function{
+	padding:10px;
+	display:flex;
+}
+#cercaFilm{
+	margin-top:5px;
+}
+#dn{
+	margin-left: auto; 
+}
+
+#myInput {
+	margin-left:5px;
+    border: 1px solid transparent;
+  	background-color: #f1f1f1;
+	padding: 10px;
+  	font-size: 16px;
+}
+
+/*CSS per autocompletamento
+the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+}
+
+
+.autocomplete-items {
+	margin-left:5px;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+ left:0;
+ right:0;
+ 
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { 
+		#myInput{
+		margin-left:0px;
+	}
+	.autocomplete-items{
+		margin-left:0px
+	}
+}
+	
+@media (min-width: 575.99px) { 
+	.card{
+		width: 230px;
+		height:32rem;
+		flex-direction: column !important;
+	}
+	.rowXS__text{
+		margin-top:0px !important;
+	}
+	.rowXS__price{
+		margin-top: 0% !important;
+	}
+}
+
+@media (min-width: 0px) { 
+	.card{
+		flex-direction: row;
+	}
+	.rowXS__text{
+		width: 100%;
+		margin-top:20px;
+	}
+	.rowXS__price{
+		float:right;
+		margin-top: 30%;
+	}
+}
+ @media (max-width: 992px) {
+	  .x {
+	    display: none;
+	  }
+
+}

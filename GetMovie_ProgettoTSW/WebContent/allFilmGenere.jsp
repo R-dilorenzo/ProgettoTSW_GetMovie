@@ -10,7 +10,10 @@
 
 <style>
 body {
-	background: #E9EBEE;;
+	background: #E9EBEE;
+		max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>
 </head>

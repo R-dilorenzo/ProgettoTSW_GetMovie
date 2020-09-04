@@ -26,21 +26,26 @@
 <title>Insert title here</title>
 <style type="text/css">
 html {
+	font-family: sans-serif;
+		max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrapper {
+	position: relative;
 	background: url(img/inf.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	font-family: sans-serif;
-}
-
-.wrapper {
-	position: relative;
+		width: 100%;
+	height: 500px;
 }
 
 .box {
 	position: absolute;
-	top: 510px;
+	top: 240px;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 400px;
@@ -114,7 +119,7 @@ html {
 	<!--NAVBAR -->
 		<jsp:include page="Navbar.jsp"></jsp:include>
 		<!-- fine navbar -->
-		
+		<div class="wrapper">
 <div class="box">
 <h2>Login ADMIN</h2>
 <form action="LoginAdmin" method="post">
@@ -131,7 +136,7 @@ html {
 <span style="color:white">Non sei registrato? </span><a href="Registrazione.jsp" style="color:#03a9f4">clicca qui</a><br><br>
 <a href="Login.jsp" style="color:#03a9f4">Login Utente</a>
 </div>
-
+</div>
 </div>
 </body>
 </html>

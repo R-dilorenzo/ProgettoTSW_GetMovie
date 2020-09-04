@@ -32,19 +32,26 @@
 	float: left;
 	list-style-type: none;
 }
+.header__image{
+margin:0;
+	background-image:url(img/imgLogo.png);
+	background-size:cover;
+	background-position:center;
+    width:auto;
+    max-width:1920px;
+    margin:auto;
+    height: 230px;
+    
+}
 </style>
 </head>
 <body>
-<!-- Jumbotron per logo  -->
-	<div class="jumbotron jumbotron-fluid"
-		style="background: #6c757d; margin-bottom: 0px">
-		<img alt="logo" src="img/img.png" style="heigth:50px;width:250px;margin-left:40%">
-		</div>
-		
+
+	<div class="header__image"> </div>	
 	<!-- NAVBAR con Bootstrap  collapse-->
 	<nav class=" navbar navbar-expand-sm navbar-toggleable-sm"
 		style="background: #284b6e;">
-		<div class="container">
+		<div class="container-fluid">
 			<!-- per schermi di dimensione piccola (576px) la navbar viene ridotta a icona -->
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#mainNav">
@@ -54,16 +61,16 @@
 			</button>
 			<div class="collapse navbar-collapse" id="mainNav">
 				<div class="navbar-nav nav-pills">
-					<a class="nav-link  text-white" href="HomePage.jsp" id="tab">Home</a>
+					<a class="nav-link  text-white ml-xl-5" href="HomePage.jsp" id="tab">Home</a>
 					<%
 					String path = ((HttpServletRequest) request).getRequestURI();
 				     if (path.endsWith("/HomePage.jsp")) { %>
-					<a class="nav-link  text-white" href="#Film" id="tab"> Film</a>
+					<a class="nav-link  text-white ml-xl-5" href="#Film" id="tab"> Film</a>
 					<%}else{ %>
-						<a class="nav-link  text-white" href="HomePage.jsp" id="tab"> Film</a>
+						<a class="nav-link  text-white ml-xl-5" href="HomePage.jsp" id="tab"> Film</a>
 					<%} %>
 						<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
+						class="nav-link dropdown-toggle text-white ml-xl-5" data-toggle="dropdown"
 						href="#" role="button" aria-haspopup="true" aria-expanded="false">Generi</a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="ReturnGenere?genere=azione">Azione</a>
@@ -83,7 +90,7 @@
 						</div></li> 
 					<%
 				     if (path.endsWith("/Login.jsp") || path.endsWith("/Registrazione.jsp")) {}else{ %>
-				 <a class="nav-link  text-white" href="#contatti" id="tab">
+				 <a class="nav-link  text-white ml-xl-5" href="#contatti" id="tab">
 						Contatti</a>
 					<% } %>
 				</div>
@@ -92,8 +99,8 @@
 				%>
 				<div class="collapse justify-content-end navbar-collapse"
 					id="mainNav">
-					<a class="nav-link  text-white" href="Registrazione.jsp" id="tab">
-						Registrazione</a> <a class="nav-link  text-white" href="Login.jsp"
+					<a class="nav-link  text-white mr-xl-5" href="Registrazione.jsp" id="tab">
+						Registrazione</a> <a class="nav-link  text-white mr-xl-5" href="Login.jsp"
 						id="tab"> Login</a>
 				</div>
 				<%
@@ -104,7 +111,7 @@
 				<div class="collapse justify-content-end navbar-collapse"
 					id="mainNav">
 					<li id="bullet" class="dropdown"><a
-						class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
+						class="nav-link dropdown-toggle text-white mr-xl-5" data-toggle="dropdown"
 						href="#" role="button" aria-haspopup="true" aria-expanded="false"><%=utente.getUsr()%></a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="AccountPage.jsp">Account</a> <a
@@ -120,8 +127,8 @@
 				<div class="collapse justify-content-end navbar-collapse"
 					id="mainNav">
 					
-					<a class="nav-link  text-white" href="AdminPage.jsp" id="tab"> AdminPage</a>
-					<a class="nav-link  text-white" href="Logout" id="tab"> Logout</a>
+					<a class="nav-link  text-white mr-xl-5" href="AdminPage.jsp" id="tab"> AdminPage</a>
+					<a class="nav-link  text-white mr-xl-5" href="Logout" id="tab"> Logout</a>
 				</div>
 				<%
 					}

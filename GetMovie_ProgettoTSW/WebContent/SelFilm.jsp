@@ -11,7 +11,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {
-	background: #E9EBEE;;
+	background: #E9EBEE;
+	max-width: 1920px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.row{
+	width: 90% !important;
+	margin-left:50px !important;
 }
 </style>
 </head>

@@ -35,7 +35,7 @@ public class DBConnectionPool {
     private static synchronized Connection createDBConnection() throws SQLException {
         Connection newConnection = null;
 
-        newConnection = DriverManager.getConnection("jdbc:mysql://localhost/nTSW?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&" + "user=root&password=***");   /* INSERIRE LA PROPRIA PASSWORD DI MySQL al posto degli asterischi */
+        newConnection = DriverManager.getConnection("jdbc:mysql://localhost/nTSW?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&" + "user=root&password=<INSERISCI PSW>");
 
 		newConnection.setAutoCommit(true);
 		

@@ -12,31 +12,33 @@
 <%@page import="java.util.*"%>
 
 <script type="text/javascript">
-function prezzo() {
-	 var x = document.querySelectorAll('input[name=price]');
-	    var text = 0;
-	 var i;
-   for (i = 0; i < x.length ;i++) {
-       text += parseFloat(x[i].value) ;
-   }
-	    document.getElementById("divPrezzo").innerHTML = parseFloat(text).toFixed(2);
-}
-window.onload = prezzo;
-
-
+	function prezzo() {
+		var x = document.querySelectorAll('input[name=price]');
+		var text = 0;
+		var i;
+		for (i = 0; i < x.length; i++) {
+			text += parseFloat(x[i].value);
+		}
+		document.getElementById("divPrezzo").innerHTML = parseFloat(text)
+				.toFixed(2);
+	}
+	window.onload = prezzo;
 </script>
 <style>
 body {
-	background: #E9EBEE;;
+	background: #E9EBEE;
+	max-width: 1920px;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
+
 .modal.custom {
-    outline:none;
-    
+	outline: none;
 }
 
 .modal.custom .modal-dialog {
-    width:350%;
-    margin-left:10px;
+	width: 350%;
+	margin-left: 10px;
 }
 
 /* The Modal (background) */
@@ -50,21 +52,22 @@ body {
 	width: 100%; /* Full width */
 	height: 100%; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0, 0, 0); /* Fallback color */
-	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	background-color: white; /* Fallback color */
+	background-color: white; /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
 	/*background-color: #fefefe;*/
 	margin: auto;
+	margin-left:0px;
 	padding: 8px;
 	border: 1px solid #888;
 	width: 100%;
 }
 
-#exampleModalLong{
-	color:black !important
+#exampleModalLong {
+	color: black !important
 }
 
 /*form nascoste off*/
@@ -98,33 +101,25 @@ body {
 	left: -25px;
 	top: calc(100%/ 2 - 20px);
 	z-index: 1;
-	
-	margin-top:12rem;
-	
+	margin-top: 12rem;
 	margin-right: 20px;
-	
 }
 /*table totale prezzo */
 table {
-  border-collapse: collapse;
- 
+	border-collapse: collapse;
 }
 
 th, td {
-
-  padding: 10px;
-  text-align: left;
-  
+	padding: 10px;
+	text-align: left;
 }
 
 @media only screen and (max-width: 575.98px) {
-  .plus {
-   margin-top: 0%;
-	margin-left: 100px; 
-	
-  }
+	.plus {
+		margin-top: 0%;
+		margin-left: 100px;
+	}
 }
-
 </style>
 <link rel="stylesheet" href="css/button4.css">
 <link rel="stylesheet" href="css/Bconferma.css">
@@ -149,7 +144,10 @@ th, td {
 	<!-- fine navbar -->
 
 	<div class="container" style="margin-top: 3%; margin-bottom: 3%;">
-		<h3>Carrello di <%=utente.getUsr()%>:</h3>
+		<h3>
+			Carrello di
+			<%=utente.getUsr()%>:
+		</h3>
 		<%
 			if (size >= 1) {
 		%>
@@ -158,8 +156,7 @@ th, td {
 				for (Carrello cart1 : carrello) {
 			%>
 
-			<div
-				class="d-inline col-sm col-md-4 col-lg-3  align-items-stretch"
+			<div class="d-inline col-sm col-md-4 col-lg-3  align-items-stretch"
 				style="padding-top: 20px; padding-bottom: 20px;">
 
 
@@ -171,22 +168,27 @@ th, td {
 						<div style="height: 5rem;">
 							<h5 class="card-title"><%=cart1.getNomeFilm()%></h5>
 							<div class="text-center">
-							<input type="hidden" name="price" value="<%=cart1.getPrezzo()%>">
-								<p class="lead card-text pull-right"><%String res=String.format("%.2f",cart1.getPrezzo());%><%=res%>	&euro;</p>
+								<input type="hidden" name="price" value="<%=cart1.getPrezzo()%>">
+								<p class="lead card-text pull-right">
+									<%
+										String res = String.format("%.2f", cart1.getPrezzo());
+									%><%=res%>
+									&euro;
+								</p>
 							</div>
 						</div>
 					</div>
-					
-				
-				
+
+
+
 				</div>
 
-<div  style="margin-left: -10px;">
-						<form action="RemoveFromCart" method="post">
-				<input type="hidden" name="nome" value="<%=cart1.getNomeFilm()%>"> 	
- <button type="submit"
-					class="btn1 btn4">Rimuovi dal carrello</button>
-			</form>
+				<div style="margin-left: -10px;">
+					<form action="RemoveFromCart" method="post">
+						<input type="hidden" name="nome" value="<%=cart1.getNomeFilm()%>">
+						<button type="submit" class="btn1 btn4">Rimuovi dal
+							carrello</button>
+					</form>
 				</div>
 
 			</div>
@@ -209,23 +211,23 @@ th, td {
 				}
 			%>
 		</div>
-		
+
 		<table>
-		
-  <tr>
-    <th>Totale</th>
-  </tr>
-  <tr>
-    <td><div id="divPrezzo"></div></td>
-    <td>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" id="triggerModal">
-  Procedi all'acquisto
-</button>
-</td>
-  </tr>
-</table>
-	
+
+			<tr>
+				<th>Totale</th>
+			</tr>
+			<tr>
+				<td><div id="divPrezzo"></div></td>
+				<td>
+					<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary" data-toggle="modal"
+						data-target="#exampleModalLong" id="triggerModal">
+						Procedi all'acquisto</button>
+				</td>
+			</tr>
+		</table>
+
 		<%
 			} else {
 		%>
@@ -240,223 +242,227 @@ th, td {
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalLong" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLongTitle"
+			aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
 
-   
- 
-      <div class="modal-body">
-      
-  
-     	<%
-						if (utente.getBoolDati() == null) {
-					%>
-					Non sono ancora state impostate le informazioni di pagamento.<br>
-					Inserisci i tuoi dati personali.
 
-     <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-          <span aria-hidden="true">&times;</span>
-        </button>
-					<h4>Dati Personali</h4>
-					<form action="AggiungiDatiUtente" method="post">
-						<div class="form-group">
-							<input type="hidden" class="form-control" name="usr"
-								placeholder="" value="<%=utente.getUsr()%>">
-						</div>
-						<div class="form-group">
-							<label for="numeroCarta">Numero Carta:</label> <input type="text"
-								class="form-control" id="numeroCartaS" name="numeroCarta"
-								placeholder="Numero Carta..." maxlength="19">
-						</div>
-						<div class="form-group">
-							<label for="scadenzaCarta">Scadenza Carta:</label> <select
-								id="mese" name="mese">
 
-								<option value="01">01</option>
+					<div class="modal-body">
 
-								<option value="02">02</option>
-								<option value="03">03</option>
-								<option value="04">04</option>
-								<option value="05">05</option>
-								<option value="06">06</option>
-								<option value="07">07</option>
-								<option value="08">08</option>
-								<option value="09">09</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
 
-							</select> <select id="anno" name="anno">
-								<%
-									int anno;
-										for (anno = 2019; anno <= 2030; anno++) {
-								%>
-								<option value="<%=anno%>">
-									<%=anno%></option>
-								<%
-									}
-								%>
-							</select> <input type="hidden" id="giorno" value="01"> <input
-								type="hidden" id="scadenzaCarta" name="scadenzaCarta" value="">
-						</div>
-						<div class="form-group">
-							<label for="dataNascita">Data di Nascita:</label> <input
-								type="date" name="dataNascita">
-						</div>
-						<div class="form-group">
-							<label for="luogoNascita">Luogo di Nascita:</label> <input
-								type="text" class="form-control" name="luogoNascita"
-								placeholder="Luogo di Nascita..." maxlength="25">
-						</div>
-						<div class="form-group">
-							<label for="residenza">Residenza:</label> <input type="text"
-								class="form-control" name="residenza"
-								placeholder="indirizzo,città residenza" maxlength="40">
-						</div>
-						<input type="hidden" name="boolDati" value="1">
-							<input type="hidden" name="viewid" value="CarrelloUtente.jsp">				
-						
-						<button onclick="myFunction()" type="submit"
-							class="btn btn-primary pull-right">Submit</button>
-					</form>
-      </div>
-       <%
+						<%
+							if (utente.getBoolDati() == null) {
+						%>
+						Non sono ancora state impostate le informazioni di pagamento.<br>
+						Inserisci i tuoi dati personali.
+
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4>Dati Personali</h4>
+						<form action="AggiungiDatiUtente" method="post">
+							<div class="form-group">
+								<input type="hidden" class="form-control" name="usr"
+									placeholder="" value="<%=utente.getUsr()%>">
+							</div>
+							<div class="form-group">
+								<label for="numeroCarta">Numero Carta:</label> <input
+									type="text" class="form-control" id="numeroCartaS"
+									name="numeroCartaNotSending" placeholder="Numero Carta..."
+									maxlength="9" onkeyup="sendValue()"> <input
+									type="hidden" class="form-control" id="numeroCartaF"
+									name="numeroCarta" placeholder="Numero Carta..." maxlength="9">
+							</div>
+							<div class="form-group">
+								<label for="scadenzaCarta">Scadenza Carta:</label> <select
+									id="mese" name="mese">
+
+									<option value="01">01</option>
+
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+
+								</select> <select id="anno" name="anno">
+									<%
+										int anno;
+											for (anno = 2019; anno <= 2030; anno++) {
+									%>
+									<option value="<%=anno%>">
+										<%=anno%></option>
+									<%
+										}
+									%>
+								</select> <input type="hidden" id="giorno" value="01"> <input
+									type="hidden" id="scadenzaCarta" name="scadenzaCarta" value="">
+							</div>
+							<div class="form-group">
+								<label for="dataNascita">Data di Nascita:</label> <input
+									type="date" name="dataNascita">
+							</div>
+							<div class="form-group">
+								<label for="luogoNascita">Luogo di Nascita:</label> <input
+									type="text" class="form-control" name="luogoNascita"
+									placeholder="Luogo di Nascita..." min="4" maxlength="25">
+							</div>
+							<div class="form-group">
+								<label for="residenza">Residenza:</label> <input type="text"
+									class="form-control" name="residenza"
+									placeholder="indirizzo,città residenza" min="4" maxlength="30">
+							</div>
+							<input type="hidden" name="boolDati" value="1"> <input
+								type="hidden" name="viewid" value="HomePage.jsp">
+							<button onclick="myFunction()" type="submit"
+								class="btn btn-primary">Submit</button>
+						</form>
+
+					</div>
+					<%
 						} else {
 					%>
-      
-     
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-          <span aria-hidden="true">&times;</span>
-        </button>
-        
-				<h4>I tuoi Dati:</h4><br>
-		<label>Nome:</label> <b><%=utente.getNome()%></b> <label>Cognome:</label>
-		<b><%=utente.getCognome()%></b><br><br>
-		<div style="display:inline" >
-		 <label>Email:</label> <b><%=utente.getEmail()%></b>
-		<button class="btn btn-secondary popover-test" class="btn btn-secondary popover-test" id="Bemail" type="button">Modifica</button>
-		<div style="display:inline-block" id="femail">
-			<form action="ModificaDatiUtente" method="post">
-				<input type="hidden" name="action" value="email"> <input
-					type="text" name="dato" required>
-	<input type="hidden" name="viewid" value="CarrelloUtente.jsp">				
-					 <button type="submit" class="fButt">Conferma</button>
-			</form>
-		</div>
-		</div>
-		<div style="display:inline" >
-		<label>Password:</label> <b><%=utente.getPsw()%></b>
-		<button class="btn btn-secondary popover-test" id="Bpassword" type="button">Modifica</button>
-		<div style="display:inline-block" id="fpassword">
-			<form action="ModificaDatiUtente" method="post">
-				<input type="hidden" name="action" value="psw"> <input
-					type="text" name="dato" required>
-	<input type="hidden" name="viewid" value="CarrelloUtente.jsp">				
-					 <button type="submit" class="fButt">Conferma</button>
-			</form>
-		</div>
-		</div>
-		<br><br>
-		<%
-			String dataNascitaStr = utente.getDataNascita();
-				SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
-				Date resultDataNascita = formater.parse(dataNascitaStr);
-				SimpleDateFormat newFormater = new SimpleDateFormat("dd-MM-yyyy");
-		%>
-		<label>Data Nascita:</label> <b><%=newFormater.format(resultDataNascita)%></b>
-		<label>Luogo di Nascita:</label> <b><%=utente.getLuogoNascita()%></b><br><br>
-		<div style="display:inline" >
-		<label>Residenza:</label> <b><%=utente.getResidenza()%></b>
-		<button class="btn btn-secondary popover-test" id="Bresidenza" type="button">Modifica</button>
-		<div style="display:inline-block" id="fresidenza">
-			<form action="ModificaDatiUtente" method="post">
-				<input type="hidden" name="action" value="residenza"> <input
-					type="text" name="dato" required>
-	<input type="hidden" name="viewid" value="CarrelloUtente.jsp">				
-					 <button type="submit" class="fButt">Conferma</button>
-			</form>
-		</div>
-		</div>
-		<br><br>
-		<%
-			String scadenzaCartaStr = utente.getScadenzaCarta();
-				SimpleDateFormat formater1 = new SimpleDateFormat("yyyyMMdd");
-				Date resultScadenzaCarta = formater1.parse(scadenzaCartaStr);
-				SimpleDateFormat newFormater1 = new SimpleDateFormat("MM-yyyy");
-		%>
-		<div style="display:inline" >
-		<label>Numero Carta:</label> <b><%=utente.getNumeroCarta()%></b>
-		<button class="btn btn-secondary popover-test" id="BnumeroCarta" type="button">Modifica</button>
-		<div style="display:inline-block" id="fnumeroCarta">
-			<form action="ModificaDatiUtente" method="post">
-				<input type="hidden" name="action" value="numeroCarta"> <input
-					type="text" id="numeroCartaS1" name="dato" maxlength="19" required> 
-	<input type="hidden" name="viewid" value="CarrelloUtente.jsp">				
-		 <button type="submit" class="fButt">Conferma</button>
-			</form>
-		</div>
-		</div>
-		<div style="display:inline" >
-		<label>Scadenza Carta:</label> <b><%=newFormater1.format(resultScadenzaCarta)%></b>
-		<button class="btn btn-secondary popover-test" id="BscadenzaCarta" type="button">Modifica</button>
-		<div style="display:inline-block" id="fscadenzaCarta">
-			<form action="ModificaDatiUtente" method="post">
-				<input type="hidden" name="action" value="scadenzaCarta"> <select
-						id="mese1" name="mese">
-					<option value="01">01</option>
-					<option value="02">02</option>
-					<option value="03">03</option>
-					<option value="04">04</option>
-					<option value="05">05</option>
-					<option value="06">06</option>
-					<option value="07">07</option>
-					<option value="08">08</option>
-					<option value="09">09</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
+					<h4>I tuoi Dati:</h4>
+					<label>Nome:</label> <b><%=utente.getNome()%></b> <label>Cognome:</label>
+					<b><%=utente.getCognome()%></b><br>
+					<div style="display: inline">
+						<label>Email:</label> <b><%=utente.getEmail()%></b>
+						<button class="btn btn-primary popover-test" id="Bemail" type="button">Modifica</button>
+						<div style="display: inline-block" id="femail">
+							<form action="ModificaDatiUtente" method="post">
+								<input type="hidden" name="action" value="email"> <input
+									type="text" name="dato" required
+									pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+								<input type="hidden" name="viewid" value="AccountPage.jsp">
+								<button type="submit" class="fButt">Conferma</button>
+							</form>
+						</div>
+					</div>
+					<div style="display: inline">
+						<label>Password:</label> <b><%=utente.getPsw()%></b>
+						<button class="btn btn-primary popover-test" id="Bpassword" type="button">Modifica</button>
+						<div style="display: inline-block" id="fpassword">
+							<form action="ModificaDatiUtente" method="post">
+								<input type="hidden" name="action" value="psw"> <input
+									type="text" name="dato" required> <input type="hidden"
+									name="viewid" value="AccountPage.jsp">
+								<button type="submit" class="fButt">Conferma</button>
+							</form>
+						</div>
+					</div>
+					<br>
+					<%
+						String dataNascitaStr = utente.getDataNascita();
+							SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+							Date resultDataNascita = formater.parse(dataNascitaStr);
+							SimpleDateFormat newFormater = new SimpleDateFormat("dd-MM-yyyy");
+					%>
+					<label>Data Nascita:</label> <b><%=newFormater.format(resultDataNascita)%></b>
+					<label>Luogo di Nascita:</label> <b><%=utente.getLuogoNascita()%></b><br>
+					<div style="display: inline">
+						<label>Residenza:</label> <b><%=utente.getResidenza()%></b>
+						<button class="btn btn-primary popover-test" id="Bresidenza" type="button">Modifica</button>
+						<div style="display: inline-block" id="fresidenza">
+							<form action="ModificaDatiUtente" method="post">
+								<input type="hidden" name="action" value="residenza"> <input
+									type="text" name="dato" required> <input type="hidden"
+									name="viewid" value="AccountPage.jsp">
+								<button type="submit" class="fButt">Conferma</button>
+							</form>
+						</div>
+					</div>
+					<br>
+					<%
+						String scadenzaCartaStr = utente.getScadenzaCarta();
+							SimpleDateFormat formater1 = new SimpleDateFormat("yyyyMMdd");
+							Date resultScadenzaCarta = formater1.parse(scadenzaCartaStr);
+							SimpleDateFormat newFormater1 = new SimpleDateFormat("MM-yyyy");
+					%>
+					<div style="display: inline">
+						<label>Numero Carta:</label> <b><%=utente.getNumeroCarta()%></b>
+						<button class="btn btn-primary popover-test" id="BnumeroCarta" type="button">Modifica</button>
+						<div style="display: inline-block" id="fnumeroCarta">
+							<form action="ModificaDatiUtente" method="post">
+								<input type="hidden" name="action" value="numeroCarta">
+								<input type="text" name="dato" id="numeroCartaS1" maxlength="9"
+									required> <input type="hidden" name="viewid"
+									value="AccountPage.jsp">
+								<button type="submit" class="fButt">Conferma</button>
+							</form>
+						</div>
+					</div>
+					<div style="display: inline">
+						<label>Scadenza Carta:</label> <b><%=newFormater1.format(resultScadenzaCarta)%></b>
+						<button class="btn btn-primary popover-test" id="BscadenzaCarta" type="button">Modifica</button>
+						<div style="display: inline-block" id="fscadenzaCarta">
+							<form action="ModificaDatiUtente" method="post">
+								<input type="hidden" name="action" value="scadenzaCarta">
+								<select id="mese1" name="mese">
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
 
-				</select> <select id="anno1" name="anno">
-					<%
-						int anno;
-							for (anno = 2019; anno <= 2030; anno++) {
-					%>
-					<option value="<%=anno%>">
-						<%=anno%></option>
-					<%
-						}
-					%>
-				</select> 
-				<input type="hidden" id="giorno1" value="01"> <input
-						type="hidden" id="scadenzaCarta1" name="dato" value="">
-						<input type="hidden" name="viewid" value="CarrelloUtente.jsp">
-				 <button onclick="myFunct1()" type="submit" class="fButt">Conferma</button>
-			</form>
+								</select> <select id="anno1" name="anno">
+									<%
+										int anno;
+											for (anno = 2019; anno <= 2030; anno++) {
+									%>
+									<option value="<%=anno%>">
+										<%=anno%></option>
+									<%
+										}
+									%>
+								</select> <input type="hidden" id="giorno1" value="01"> <input
+									type="hidden" id="scadenzaCarta1" name="dato" value="">
+								<input type="hidden" name="viewid" value="AccountPage.jsp">
+
+								<button onclick="myFunct1()" type="submit" class="fButt">Conferma</button>
+							</form>
+
+						</div>
+					</div>
+					<br>
+
+				</div>
+				<div class="modal-footer">
+					<form action="EliminaCarrello" method="post">
+						<input class="btn btn-primary popover-test" type="submit"
+							value="Acquista">
+					</form>
+
+				</div>
+				<%
+					}
+				%>
+			</div>
 		</div>
-		</div>
-		<br>
-					
-      </div>
-         <div class="modal-footer">
-         <form action="EliminaCarrello" method="post">
-							<input class="btn btn-primary popover-test" type="submit" value="Acquista">
-						</form>
-     
-      </div>
-      <%
-						}
-					%>
-    </div>
-  </div>
-</div>
-  
+	</div>
+
 
 
 	</div>
 
-</div>
+	</div>
 	<!-- include footer -->
 	<jsp:include page="Footer.jsp"></jsp:include>
 
@@ -488,22 +494,20 @@ th, td {
 		}
 	</script>
 	<script>
-	
 		function myFunction() {
 			var anno = document.getElementById("anno").value;
 			var mese = document.getElementById("mese").value;
 			var giorno = document.getElementById("giorno").value;
 			var concat = anno + mese + giorno;
 			document.getElementById("scadenzaCarta").value = concat;
-			
-	
+
 		}
 
 		function myFunct1() {
 			var anno1 = document.getElementById("anno1").value;
 			var mese1 = document.getElementById("mese1").value;
 			var giorno1 = document.getElementById("giorno1").value;
-			var concat1=anno1+"-"+mese1+"-"+giorno1;
+			var concat1 = anno1 + "-" + mese1 + "-" + giorno1;
 			document.getElementById("scadenzaCarta1").value = concat1;
 		}
 
@@ -513,48 +517,58 @@ th, td {
 		}
 	</script>
 	<script>
-	
-	$("#femail").hide();
-	$("#Bemail").bind("click", function(){
-	    $("#femail").toggle();
-	    return false;   
-	})
-	
-	$("#fpassword").hide();
-	$("#Bpassword").bind("click", function(){
-	    $("#fpassword").toggle();
-	    return false;   
-	})
-	
-	$("#fscadenzaCarta").hide();
-	$("#BscadenzaCarta").bind("click", function(){
-	    $("#fscadenzaCarta").toggle();
-	    return false;   
-	})
-	
-	$("#fresidenza").hide();
-	$("#Bresidenza").bind("click", function(){
-	    $("#fresidenza").toggle();
-	    return false;    
-	})
-	
-	$("#fnumeroCarta").hide();
-	$("#BnumeroCarta").bind("click", function(){
-	    $("#fnumeroCarta").toggle();
-	    return false;    
-	})
-	
-	//controllo solo numeri e aggiunta spazi ogni 4 
-document.getElementById('numeroCartaS').addEventListener('input', function (e) {
-  e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
-});
-  
-document.getElementById('numeroCartaS1').addEventListener('input', function (e) {
-  e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
-});
+		$("#femail").hide();
+		$("#Bemail").bind("click", function() {
+			$("#femail").toggle();
+			return false;
+		})
 
+		$("#fpassword").hide();
+		$("#Bpassword").bind("click", function() {
+			$("#fpassword").toggle();
+			return false;
+		})
+
+		$("#fscadenzaCarta").hide();
+		$("#BscadenzaCarta").bind("click", function() {
+			$("#fscadenzaCarta").toggle();
+			return false;
+		})
+
+		$("#fresidenza").hide();
+		$("#Bresidenza").bind("click", function() {
+			$("#fresidenza").toggle();
+			return false;
+		})
+
+		$("#fnumeroCarta").hide();
+		$("#BnumeroCarta").bind("click", function() {
+			$("#fnumeroCarta").toggle();
+			return false;
+		})
+
+		//controllo solo numeri e aggiunta spazi ogni 4 
+		document.getElementById('numeroCartaS').addEventListener(
+				'input',
+				function(e) {
+					e.target.value = e.target.value.replace(/[^\dA-Z]/g, '')
+							.replace(/(.{4})/g, '$1 ').trim();
+				});
+
+		document.getElementById('numeroCartaS1').addEventListener(
+				'input',
+				function(e) {
+					e.target.value = e.target.value.replace(/[^\dA-Z]/g, '')
+							.replace(/(.{4})/g, '$1 ').trim();
+				});
+		
+		function sendValue() {
+			var value = document.getElementById('numeroCartaS').value;
+			var target = document.getElementById('numeroCartaF');
+			target.value = value.replaceAll(" ", "");
+		}
 	</script>
-		<script type="text/javascript" src="js/checkDayNight.js"></script>
-	
+	<script type="text/javascript" src="js/checkDayNight.js"></script>
+
 </body>
 </html>

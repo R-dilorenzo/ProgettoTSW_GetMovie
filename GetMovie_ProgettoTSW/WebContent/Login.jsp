@@ -10,16 +10,21 @@
 
 <style type="text/css">
 html {
+	font-family: sans-serif;
+	max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrapper {
+	position: relative;
 	background: url(img/inf.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	font-family: sans-serif;
-}
-
-.wrapper {
-	position: relative;
+		width: 100%;
+	height: 500px;
 }
 
 .box {
